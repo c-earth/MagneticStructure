@@ -1,17 +1,16 @@
 from structure import MagneticStructure
 from pymatgen.io.cif import CifParser, CifFile
 from pymatgen.util.coord import find_in_coord_list_pbc, in_coord_list_pbc
-from pymatgen.core.periodic_table import get_el_sp
+from pymatgen.core.periodic_table import get_el_sp, Element
 from pymatgen.core.composition import Composition
-from pymatgen.symmetry.structure import SymmetrizedStructure
-from pymatgen.core.periodic_table import Element
 from pymatgen.core.operations import MagSymmOp
-from pymatgen.electronic_structure.core import Magmom
 from pymatgen.core.lattice import Lattice
+from pymatgen.symmetry.structure import SymmetrizedStructure
+from pymatgen.electronic_structure.core import Magmom
 from itertools import groupby
 from io import StringIO
-import collections
 from pathlib import Path
+import collections
 import numpy as np
 import math
 import re
@@ -21,33 +20,6 @@ class MCifParser(CifParser):
     MCIF version of CifParser
     '''
     
-    def __init__(self, filename, occupancy_tolerance=1.0, site_tolerance=1e-4):
-        
-        self._occupancy_tolerance = occupancy_tolerance
-        self._site_tolerance = site_tolerance
-        if isinstance(filename, (str, Path)):
-            self._cif = CifFile.from_file(filename)
-        else:
-            self._cif = CifFile.from_string(filename.read())
-        
-        self.warnings = []
-        self.feature_flags = {}
-        self.feature_flags['magcif'] = True
-        
-        def is_incommensurate():
-            prefixes = ["_cell_modulation_dimension", "_cell_wave_vector"]
-            for d in self._cif.data.values():
-                for k in d.data.keys():
-                    for prefix in prefixes:
-                        if prefix in k:
-                            return True
-            return False
-        
-        self.feature_flags['incommensurate'] = is_incommensurate()
-        
-        for k in self._cif.data.keys():
-            self._cif.data[k] = self._sanitize_data(self._cif.data[k])
-    
     @staticmethod
     def from_string(cif_string, occupancy_tolerance=1.0):
     
@@ -55,146 +27,24 @@ class MCifParser(CifParser):
         return MCifParser(stream, occupancy_tolerance)
         
     def _sanitize_data(self, data):
-        if "_atom_site_attached_hydrogens" in data.data.keys():
-            attached_hydrogens = [str2float(x) for x in data.data["_atom_site_attached_hydrogens"] if str2float(x) != 0]
-            if len(attached_hydrogens) > 0:
-                self.warnings.append(
-                    "Structure has implicit hydrogens defined, "
-                    "parsed structure unlikely to be suitable for use "
-                    "in calculations unless hydrogens added."
-                )
-
-        if "_atom_site_type_symbol" in data.data.keys():
-
-            idxs_to_remove = []
-
-            new_atom_site_label = []
-            new_atom_site_type_symbol = []
-            new_atom_site_occupancy = []
-            new_fract_x = []
-            new_fract_y = []
-            new_fract_z = []
-
-            for idx, el_row in enumerate(data["_atom_site_label"]):
-
-
-                if len(data["_atom_site_type_symbol"][idx].split(" + ")) > len(
-                    data["_atom_site_label"][idx].split(" + ")
-                ):
-
-                    els_occu = {}
-
-                    symbol_str = data["_atom_site_type_symbol"][idx]
-                    symbol_str_lst = symbol_str.split(" + ")
-                    for elocc_idx, sym in enumerate(symbol_str_lst):
-                        symbol_str_lst[elocc_idx] = re.sub(r"\([0-9]*\)", "", sym.strip())
-                        els_occu[
-                            str(re.findall(r"\D+", symbol_str_lst[elocc_idx].strip())[1]).replace("<sup>", "")
-                        ] = float("0" + re.findall(r"\.?\d+", symbol_str_lst[elocc_idx].strip())[1])
-
-                    x = str2float(data["_atom_site_fract_x"][idx])
-                    y = str2float(data["_atom_site_fract_y"][idx])
-                    z = str2float(data["_atom_site_fract_z"][idx])
-
-                    for et, occu in els_occu.items():
-                        new_atom_site_label.append(et + "_fix" + str(len(new_atom_site_label)))
-                        new_atom_site_type_symbol.append(et)
-                        new_atom_site_occupancy.append(str(occu))
-                        new_fract_x.append(str(x))
-                        new_fract_y.append(str(y))
-                        new_fract_z.append(str(z))
-
-                    idxs_to_remove.append(idx)
-
-            for original_key in data.data:
-                if isinstance(data.data[original_key], list):
-                    for id in sorted(idxs_to_remove, reverse=True):
-                        del data.data[original_key][id]
-
-            if len(idxs_to_remove) > 0:
-                self.warnings.append("Pauling file corrections applied.")
-
-                data.data["_atom_site_label"] += new_atom_site_label
-                data.data["_atom_site_type_symbol"] += new_atom_site_type_symbol
-                data.data["_atom_site_occupancy"] += new_atom_site_occupancy
-                data.data["_atom_site_fract_x"] += new_fract_x
-                data.data["_atom_site_fract_y"] += new_fract_y
-                data.data["_atom_site_fract_z"] += new_fract_z
-
-        if self.feature_flags["magcif"]:
-
-            correct_keys = [
-                "_space_group_symop_magn_operation.xyz",
-                "_space_group_symop_magn_centering.xyz",
-                "_space_group_magn.name_BNS",
-                "_space_group_magn.number_BNS",
-                "_atom_site_moment_crystalaxis_x",
-                "_atom_site_moment_crystalaxis_y",
-                "_atom_site_moment_crystalaxis_z",
-                "_atom_site_moment_label",
-                "_atom_site_moment_Fourier_atom_site_label",
-                "_atom_site_moment_Fourier_axis",
-                "_atom_site_moment_Fourier_wave_vector_seq_id",
-                "_atom_site_moment_Fourier_param_cos",
-                "_atom_site_moment_Fourier_param_sin",
-                "_atom_site_Fourier_wave_vector_seq_id",
-                "_atom_site_Fourier_wave_vector_q1_coeff",
-                "_atom_site_Fourier_wave_vector_q2_coeff"
-            ]
-
-            changes_to_make = {}
-
-            for original_key in data.data:
-                for correct_key in correct_keys:
-                    # convert to all underscore
-                    trial_key = "_".join(correct_key.split("."))
-                    test_key = "_".join(original_key.split("."))
-                    if trial_key == test_key:
-                        changes_to_make[correct_key] = original_key
-
-            # make changes
-            for correct_key, original_key in changes_to_make.items():
-                data.data[correct_key] = data.data[original_key]
-
-            # renamed_keys maps interim_keys to final_keys
-            renamed_keys = {
-                "_magnetic_space_group.transform_to_standard_Pp_abc": "_space_group_magn.transform_BNS_Pp_abc"
-            }
-            changes_to_make = {}
-
-            for interim_key, final_key in renamed_keys.items():
-                if data.data.get(interim_key):
-                    changes_to_make[final_key] = interim_key
-
-            if len(changes_to_make) > 0:
-                self.warnings.append("Keys changed to match new magCIF specification.")
-
-            for final_key, interim_key in changes_to_make.items():
-                data.data[final_key] = data.data[interim_key]
-
-        # check for finite precision frac coordinates (e.g. 0.6667 instead of 0.6666666...7)
-        # this can sometimes cause serious issues when applying symmetry operations
-        important_fracs = (1 / 3.0, 2 / 3.0)
-        fracs_to_change = {}
-        for label in ("_atom_site_fract_x", "_atom_site_fract_y", "_atom_site_fract_z"):
-            if label in data.data.keys():
-                for idx, frac in enumerate(data.data[label]):
-                    try:
-                        frac = str2float(frac)
-                    except Exception:
-                        # coordinate might not be defined e.g. '?'
-                        continue
-                    for comparison_frac in important_fracs:
-                        if abs(1 - frac / comparison_frac) < 1e-4:
-                            fracs_to_change[(label, idx)] = str(comparison_frac)
-        if fracs_to_change:
-            self.warnings.append(
-                "Some fractional coordinates rounded to ideal values to avoid issues with finite precision."
-            )
-            for (label, idx), val in fracs_to_change.items():
-                data.data[label][idx] = val
-
-        return data
+        
+	    data = super()._sanitize_data(data)
+	    if self.feature_flags["magcif"]:
+	        correct_keys = ["_atom_site_moment_Fourier_atom_site_label",
+	                        "_atom_site_moment_Fourier_axis",
+	                        "_atom_site_moment_Fourier_wave_vector_seq_id",
+	                        "_atom_site_moment_Fourier_param_cos",
+	                        "_atom_site_moment_Fourier_param_sin"]
+	        changes_to_make = {}
+	        for original_key in data.data:
+	            for correct_key in correct_keys:
+	                trial_key = "_".join(correct_key.split("."))
+	                test_key = "_".join(original_key.split("."))
+	                if trial_key == test_key:
+	                    changes_to_make[correct_key] = original_key
+	        for correct_key, original_key in changes_to_make.items():
+	            data.data[correct_key] = data.data[original_key]
+	    return data
         
     def _unique_coords(self, coords_in, magmoms_in=None, modulation_in=None, lattice=None):
         coords = []
@@ -231,50 +81,11 @@ class MCifParser(CifParser):
                         magmoms.append(magmom)
                         modulations.append(modulation)
             return coords, magmoms, modulations
-    
-    def get_lattice(
-        self,
-        data,
-        length_strings=("a", "b", "c"),
-        angle_strings=("alpha", "beta", "gamma"),
-        lattice_type=None,
-    ):
-        try:
-
-            lengths = [str2float(data["_cell_length_" + i]) for i in length_strings]
-            angles = [str2float(data["_cell_angle_" + i]) for i in angle_strings]
-            if not lattice_type:
-                return Lattice.from_parameters(*lengths, *angles)
-
-            return getattr(Lattice, lattice_type)(*(lengths + angles))
-
-        except KeyError:
-            # Missing Key search for cell setting
-            for lattice_lable in [
-                "_symmetry_cell_setting",
-                "_space_group_crystal_system",
-            ]:
-                if data.data.get(lattice_lable):
-                    lattice_type = data.data.get(lattice_lable).lower()
-                    try:
-
-                        required_args = getargspec(getattr(Lattice, lattice_type)).args
-
-                        lengths = (l for l in length_strings if l in required_args)
-                        angles = (a for a in angle_strings if a in required_args)
-                        return self.get_lattice(data, lengths, angles, lattice_type=lattice_type)
-                    except AttributeError as exc:
-                        self.warnings.append(str(exc))
-                        warnings.warn(exc)
-
-                else:
-                    return None
-        return None
         
     def parse_modulation(self, data):
         modulation = dict()
         for label in data['_atom_site_label']:
-            modulation[label] = {i: {'cos': np.array([0, 0, 0]), 'sin': np.array([0, 0, 0])} for i in self.propvecs.keys()}
+            modulation[label] = {i: {'cos': np.array([0., 0., 0.]), 'sin': np.array([0., 0., 0.])} for i in self.propvecs.keys()}
         if '_atom_site_moment_Fourier_atom_site_label' in data.data.keys():
             for label, vec, axis, cos, sin in zip(data['_atom_site_moment_Fourier_atom_site_label'],
                                                     data['_atom_site_moment_Fourier_wave_vector_seq_id'],
@@ -291,7 +102,7 @@ class MCifParser(CifParser):
                     modulation[label][vec]['sin'][1] = str2float(sin)
                 elif axis == 'z':
                     modulation[label][vec]['cos'][2] = str2float(cos)
-                    modulation[label][vec]['sin'][2] = str2float(sin)    
+                    modulation[label][vec]['sin'][2] = str2float(sin)   
         return modulation
     
     def get_propvecs(self, data):
@@ -366,7 +177,7 @@ class MCifParser(CifParser):
             x = str2float(data["_atom_site_fract_x"][i])
             y = str2float(data["_atom_site_fract_y"][i])
             z = str2float(data["_atom_site_fract_z"][i])
-            magmom_ave = magmoms_ave.get(data["_atom_site_label"][i], np.array([0, 0, 0]))
+            magmom_ave = magmoms_ave.get(data["_atom_site_label"][i], np.array([0., 0., 0.]))
             magmom_mod = magmoms_mod[data["_atom_site_label"][i]]
             
             try:
@@ -456,7 +267,7 @@ class MCifParser(CifParser):
             if len(site_properties) == 0:
                 site_properties = None
 
-            struct = MagneticStructure(lattice, allspecies, allcoords, self.propvecs, self.feature_flags['incommensurate'], site_properties=site_properties)
+            struct = MagneticStructure(lattice, allspecies, allcoords, self.propvecs, site_properties=site_properties)
 
             if symmetrized:
 
