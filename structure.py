@@ -1,5 +1,4 @@
 from pymatgen.core.structure import Structure
-from MagneticStructure.mcif import MCifParser
 import warnings
 
 class MagneticStructure(Structure):
@@ -76,6 +75,7 @@ class MagneticStructure(Structure):
         sort=False,
         merge_tol=0.0,
     ):
+        from mcif import MCifParser
         parser = MCifParser.from_string(input_string, occupancy_tolerance=1.05)
         s = parser.get_structures(primitive=primitive)[0]
 

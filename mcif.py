@@ -1,3 +1,4 @@
+from structure import MagneticStructure
 from pymatgen.io.cif import CifParser, CifFile
 from pymatgen.util.coord import find_in_coord_list_pbc, in_coord_list_pbc
 from pymatgen.core.periodic_table import get_el_sp
