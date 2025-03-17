@@ -1,0 +1,163 @@
+#\#CIF_2.0
+# Created by the Bilbao Crystallographic Server
+# http://www.cryst.ehu.es
+# Date: 09/12/2023
+# From a file provided by V. Pomjakushin
+
+data_5yOhtAoR
+_audit_creation_date            2023-09-12
+_audit_creation_method          "Bilbao Crystallographic Server"
+
+_chemical_name_systematic
+;
+;
+_chemical_name_common                    ?
+_chemical_formula_moiety                 ?
+_chemical_formula_structural             ?
+_chemical_formula_analytical             ?
+_chemical_formula_iupac                  ?
+_chemical_formula_sum                    "Mn1 Ge1"
+_chemical_formula_weight                 ?
+_chemical_melting_point                  ?
+_chemical_compound_source                ?
+_chemical_absolute_configuration         ?
+
+
+_citation_journal_abbrev        "Physical Review B"
+_citation_journal_volume        107
+_citation_page_first            .
+_citation_page_last             .
+_citation_article_id            024410
+_citation_year                  2023
+_citation_DOI                   10.1103/PhysRevB.107.024410
+
+loop_
+_citation_author_name
+"V. Pomjakushin"
+"I. Plokhikh"
+"J.S. White"
+"Y. Fujishiro"
+"N. Kanazawa"
+"Y. Tokura"
+"E. Pomjakushina"
+
+_temperature_position_structure         .
+_temperature_atom_positions             .
+_temperature_non-magn_atom_positions    .
+_temperature_cell_parameters            .
+
+_atomic_positions_source_database_code_ICSD  .
+_atomic_positions_source_other               .
+
+_transition_temperature     170K
+_experiment_temperature     2K 
+
+loop_
+_irrep_id
+_irrep_dimension
+_irrep_small_dimension
+_irrep_direction_type
+_irrep_action
+_irrep_modes_number
+_irrep_presence
+mDT2 6 1 special primary 12 .
+
+_exptl_crystal_magnetic_properties_details
+;
+NPD
+A difference curve 2K-300K was used
+;
+
+_active_magnetic_irreps_details
+;
+2k incommensurate magnetic structure
+The star of the active irrep has 6 vectors. This is the model of maximal symmetry considering a 2k arrangement involving 4 arms of the irrep star.
+1k and 3k models for the same irrep were also refined as possible alternative models (see corresponding entries)
+An observed small orthorhombic distortion in the space group P2_12_12_1 of the nuclear structure, with respect to the parent cubic structure is disregarded and not included in this model.
+;
+
+_parent_space_group.name_H-M_alt  'P 2_1 3'
+_parent_space_group.IT_number             198
+_parent_space_group.transform_Pp_abc  'a,b,c;0,0,0'
+
+_cell_modulation_dimension               2
+
+loop_
+_cell_wave_vector_seq_id
+_cell_wave_vector_x
+_cell_wave_vector_y
+_cell_wave_vector_z
+1 0.00000 0.16498 0.00000
+2 0.16498 0.00000 0.00000
+
+
+_parent_space_group.child_transform_Pp_abc  'a,b,c;0,0,0'
+
+_space_group.magn_ssg_name  "P2_12_12_1.1'(0,b,0)000s(0,0,g)000s"
+_space_group.magn_point_group_name  "222.1'"
+_space_group.magn_point_group_number  6.2.18
+_cell_length_a                 4.78049
+_cell_length_b                 4.78049
+_cell_length_c                 4.78049
+_cell_angle_alpha              90.0000
+_cell_angle_beta               90.0000
+_cell_angle_gamma              90.0000
+
+loop_
+_space_group_symop_magn_ssg_operation.id
+_space_group_symop_magn_ssg_operation.algebraic
+1 x1,x2,x3,x4,x5,+1
+2 -x1+1/2,-x2,x3+1/2,-x4+1/2,-x5,+1
+3 -x1,x2+1/2,-x3+1/2,x4+1/2,-x5+1/2,+1
+4 x1+1/2,-x2+1/2,-x3,-x4,x5+1/2,+1
+
+loop_
+_space_group_symop_magn_ssg_centering.id
+_space_group_symop_magn_ssg_centering.algebraic
+1 x1,x2,x3,x4,x5,+1
+2 x1,x2,x3,x4+1/2,x5+1/2,-1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ge1 Ge 0.1567 0.1567 0.1567 1
+Mn1_1 Mn 0.8616 0.8616 0.8616 1
+
+
+loop_
+_atom_site_moment.label
+_atom_site_moment.crystalaxis_x
+_atom_site_moment.crystalaxis_y
+_atom_site_moment.crystalaxis_z
+_atom_site_moment.symmform
+_atom_site_moment.magnitude
+_atom_site_moment.spherical_azimuthal
+_atom_site_moment.spherical_polar
+Mn1_1 0.00000 0.00000 0.00000 0,0,0 0.0 ? ?
+
+loop_
+_atom_site_Fourier_wave_vector.seq_id
+_atom_site_Fourier_wave_vector.q1_coeff
+_atom_site_Fourier_wave_vector.q2_coeff
+1 1 0
+2 0 1
+
+loop_
+_atom_site_moment_Fourier.atom_site_label
+_atom_site_moment_Fourier.axis
+_atom_site_moment_Fourier.wave_vector_seq_id
+_atom_site_moment_Fourier_param.cos
+_atom_site_moment_Fourier_param.sin
+_atom_site_moment_Fourier_param.cos_symmform
+_atom_site_moment_Fourier_param.sin_symmform
+Mn1_1 x 1 1.28300 0.00000 Mxc1 Mxs1
+Mn1_1 y 1 0.00000 0.00000 Myc1 Mys1
+Mn1_1 z 1 0.00000 -1.28300 Mzc1 Mzs1
+Mn1_1 x 2 0.00000 0.00000 Mxc2 Mxs2
+Mn1_1 y 2 0.00000 -1.28300 Myc2 Mys2
+Mn1_1 z 2 1.28300 0.00000 Mzc2 Mzs2
+

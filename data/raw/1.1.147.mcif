@@ -1,0 +1,164 @@
+#\#CIF_2.0
+# Created by the Bilbao Crystallographic Server
+# http://www.cryst.ehu.es
+# Date: 08/26/2023
+# From a file provided by M. Pardo-Saiz
+
+data_5yOhtAoR
+_audit_creation_date            2023-08-26
+_audit_creation_method          "Bilbao Crystallographic Server"
+
+_chemical_name_systematic
+;
+;
+_chemical_name_common                    ?
+_chemical_formula_moiety                 ?
+_chemical_formula_structural             ?
+_chemical_formula_analytical             ?
+_chemical_formula_iupac                  ?
+_chemical_formula_sum                    "Ho"
+_chemical_formula_weight                 ?
+_chemical_melting_point                  ?
+_chemical_compound_source                ?
+_chemical_absolute_configuration         ?
+
+
+_citation_journal_abbrev        "Scientific Reports"
+_citation_journal_volume        13
+_citation_page_first            .
+_citation_page_last             .
+_citation_article_id            12168
+_citation_year                  2023
+_citation_DOI                   10.1038/s41598-023-39284-2
+
+loop_
+_citation_author_name
+"M. Pardo-Sainz"
+"F. Cova"
+"J. A. Rodriguez-Velamazan"
+"I. Puente‑Orench"
+"Y. Kousaka"
+"M. Mito"
+"J. Campo"
+
+_temperature_position_structure         .
+_temperature_atom_positions             .
+_temperature_non-magn_atom_positions    .
+_temperature_cell_parameters            .
+
+_atomic_positions_source_database_code_ICSD  43582
+_atomic_positions_source_other               "."
+
+_transition_temperature     105
+_experiment_temperature     5
+
+loop_
+_irrep_id
+_irrep_dimension
+_irrep_small_dimension
+_irrep_direction_type
+_irrep_action
+_irrep_modes_number
+_irrep_presence
+mDT6 4 2 special primary 1 .
+
+_exptl_crystal_magnetic_properties_details
+;
+NPD at P = 8 GPa
+Helical incommensurate structure.
+Ho spin modulus: 6.94(1)
+;
+
+_active_magnetic_irreps_details
+;
+1k incommensurate magnetic structure.
+The 2d-irreps, mDT5 and mDT6 , describe helices in which the magnetic moments are contained in ferromagnetic ab planes, and propagate along the c-axis.
+However, both models differ greatly when considering the phase-shift between the Ho atoms in the unit cell. The magnetic structure
+given by mDT6 can be considered as a single helix, while for mDT5 the system is composed of two independent helices, one for each atom in the unit cell.
+The fit to NPD data shows that only the irrep mDT6 correctly describes the data.
+;
+
+_parent_space_group.name_H-M_alt  "P 6_3/m m c"
+_parent_space_group.IT_number             194
+_parent_space_group.transform_Pp_abc  'a,b,c;0,0,0'
+
+_cell_modulation_dimension               1
+
+loop_
+_cell_wave_vector_seq_id
+_cell_wave_vector_x
+_cell_wave_vector_y
+_cell_wave_vector_z
+1 0.00000 0.00000 0.25356(6)
+
+
+_parent_space_group.child_transform_Pp_abc  'a,b,c;0,0,0'
+
+_space_group.magn_ssg_name  "P6_322.1'(0,0,g)h00s"
+_space_group.magn_point_group_name  "622.1'"
+_space_group.magn_point_group_number  24.2.88
+_cell_length_a                 3.3976(6)
+_cell_length_b                 3.3976(6)
+_cell_length_c                 5.3898(12)
+_cell_angle_alpha              90.0000
+_cell_angle_beta               90.0000
+_cell_angle_gamma              120.000
+
+loop_
+_space_group_symop_magn_ssg_operation.id
+_space_group_symop_magn_ssg_operation.algebraic
+1 x1,x2,x3,x4,+1
+2 x1-x2,x1,x3+1/2,x4+1/6,+1
+3 -x1,-x1+x2,-x3,-x4,+1
+4 -x2,-x1,-x3+1/2,-x4+1/6,+1
+5 -x2,x1-x2,x3,x4+1/3,+1
+6 x1-x2,-x2,-x3,-x4+1/3,+1
+7 -x1+x2,x2,-x3+1/2,-x4+5/6,+1
+8 x2,-x1+x2,x3+1/2,x4+5/6,+1
+9 -x1,-x2,x3+1/2,x4+1/2,+1
+10 x1,x1-x2,-x3+1/2,-x4+1/2,+1
+11 x2,x1,-x3,-x4+2/3,+1
+12 -x1+x2,-x1,x3,x4+2/3,+1
+
+loop_
+_space_group_symop_magn_ssg_centering.id
+_space_group_symop_magn_ssg_centering.algebraic
+1 x1,x2,x3,x4,+1
+2 x1,x2,x3,x4+1/2,-1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Ho1 Ho 0.33333 0.66667 0.25000 1
+
+
+loop_
+_atom_site_moment.label
+_atom_site_moment.crystalaxis_x
+_atom_site_moment.crystalaxis_y
+_atom_site_moment.crystalaxis_z
+_atom_site_moment.symmform
+Ho1 0.00000 0.00000 0.00000 0,0,0
+
+loop_
+_atom_site_Fourier_wave_vector.seq_id
+_atom_site_Fourier_wave_vector.q1_coeff
+1 1
+
+loop_
+_atom_site_moment_Fourier.atom_site_label
+_atom_site_moment_Fourier.axis
+_atom_site_moment_Fourier.wave_vector_seq_id
+_atom_site_moment_Fourier_param.cos
+_atom_site_moment_Fourier_param.sin
+_atom_site_moment_Fourier_param.cos_symmform
+_atom_site_moment_Fourier_param.sin_symmform
+Ho1 x 1 0.00000 -8.012(13) 0 -1.15470*myc1
+Ho1 y 1 6.938(13) -4.006(13) myc1 -0.57735*myc1
+Ho1 z 1 0.00000 0.00000 0 0
+
+

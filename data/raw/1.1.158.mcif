@@ -1,0 +1,232 @@
+#\#CIF_2.0
+# Created by the Bilbao Crystallographic Server
+# http://www.cryst.ehu.es
+# Date: 12/17/2024 
+# from a file submitted by L. Canadillas-Delgado
+
+data_5yOhtAoR
+_audit_creation_date            2024-12-17
+_audit_creation_method          "Bilbao Crystallographic Server"
+
+_chemical_name_systematic
+;
+;
+_chemical_name_common                    ?
+_chemical_formula_moiety                 ?
+_chemical_formula_structural             ?
+_chemical_formula_analytical             ?
+_chemical_formula_iupac                  ?
+_chemical_formula_sum                    "C4 H9 Co0.526 N1 Ni0.474 O6"
+_chemical_formula_weight                 ?
+_chemical_melting_point                  ?
+_chemical_compound_source                ?
+_chemical_absolute_configuration         ?
+
+
+_citation_journal_abbrev        "IUCrJ"
+_citation_journal_volume        11
+_citation_page_first            910
+_citation_page_last             920
+_citation_article_id            .
+_citation_year                  2024
+_citation_DOI                   10.1107/S2052252524008583
+
+loop_
+_citation_author_name
+"M. Geers"
+"O. Fabelo"
+"M. J. Cliffeb"
+"L. Canadillas-Delgado"
+
+_temperature_position_structure         .
+_temperature_atom_positions             .
+_temperature_non-magn_atom_positions    .
+_temperature_cell_parameters            .
+
+_atomic_positions_source_database_code_ICSD  .
+_atomic_positions_source_other               .
+
+_transition_temperature     22.5
+_experiment_temperature     2
+
+loop_
+_irrep_id
+_irrep_dimension
+_irrep_small_dimension
+_irrep_direction_type
+_irrep_action
+_irrep_modes_number
+_irrep_presence
+? ? ? ? ? ? ?
+
+_exptl_crystal_magnetic_properties_details
+;
+NSD
+Structural modulated phase with a k=0 magnetic ordering
+FM along b
+;
+
+_active_magnetic_irreps_details
+;
+The modulation of this phase is only structural
+;
+
+_parent_space_group.name_H-M_alt  'Pnma'
+_parent_space_group.IT_number             62
+_parent_space_group.transform_Pp_abc  'a,b,c;0,0,0'
+
+_cell_modulation_dimension               1
+
+loop_
+_cell_wave_vector_seq_id
+_cell_wave_vector_x
+_cell_wave_vector_y
+_cell_wave_vector_z
+1 0.000000 0.000000 0.124900
+
+
+_parent_space_group.child_transform_Pp_abc  'a,b,c;0,0,0'
+
+_space_group.magn_ssg_name  "Pn'ma'(00\g)0s0"
+_space_group.magn_point_group_name  "m'm'm"
+_space_group.magn_point_group_number  8.4.27
+_cell_length_a                 8.2010(3)
+_cell_length_b                 11.5747(8)
+_cell_length_c                 8.1144(3)
+_cell_angle_alpha              90
+_cell_angle_beta               90
+_cell_angle_gamma              90
+
+loop_
+_space_group_symop_magn_ssg_operation.id
+_space_group_symop_magn_ssg_operation.algebraic
+1 x1,x2,x3,x4,+1
+2 -x1+1/2,-x2,x3+1/2,x4+1/2,-1
+3 -x1,x2+1/2,-x3,-x4+1/2,+1
+4 x1+1/2,-x2+1/2,-x3+1/2,-x4,-1
+5 -x1,-x2,-x3,-x4,+1
+6 x1+1/2,x2,-x3+1/2,-x4+1/2,-1
+7 x1,-x2+1/2,x3,x4+1/2,+1
+8 -x1+1/2,x2+1/2,x3+1/2,x4,-1
+
+loop_
+_space_group_symop_magn_ssg_centering.id
+_space_group_symop_magn_ssg_centering.algebraic
+1 x1,x2,x3,x4,+1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Co1 Co 0.5 0.5 1 0.526
+Ni1 Ni 0.5 0.5 1 0.474
+N1 N 0.5853(2) 0.75 0.5299(2) 1
+C1 C 0.4118(3) 0.75 0.4756(3) 1
+C2 C 0.27933(18) 0.47064(13) 0.72138(18) 1
+C3 C 0.5096(2) 0.75 0.9449(2) 1
+O1 O 0.40343(19) 0.42964(14) 0.7869(2) 1
+O2 O 0.2263(2) 0.44097(13) 0.5818(2) 1
+O3 O 0.5239(2) 0.65484(15) 0.87344(17) 1
+H1 H 0.5878(6) 0.75 0.6560(6) 1
+H2 H 0.6460(4) 0.8214(3) 0.4878(4) 1
+H3 H 0.4079(6) 0.75 0.3423(7) 1
+H4 H 0.3523(4) 0.8259(3) 0.5213(6) 1
+H5 H 0.2098(5) 0.5362(4) 0.7869(4) 1
+H6 H 0.4834(7) 0.75 1.0777(7) 1
+
+
+loop_
+_atom_site_moment.label
+_atom_site_moment.crystalaxis_x
+_atom_site_moment.crystalaxis_y
+_atom_site_moment.crystalaxis_z
+_atom_site_moment.symmform
+_atom_site_moment.magnitude
+_atom_site_moment.spherical_azimuthal
+_atom_site_moment.spherical_polar
+Co1 0.71(17) -0.6(2) 2.33(8) mx,my,mz 2.51 ? ?
+Ni1 0.71(17) -0.6(2) 2.33(8) mx,my,mz 2.51 ? ?
+
+loop_
+_atom_site_Fourier_wave_vector.seq_id
+_atom_site_Fourier_wave_vector.q1_coeff
+1 1
+2 2
+
+
+loop_
+_atom_site_displace_Fourier_atom_site_label
+_atom_site_displace_Fourier_axis
+_atom_site_displace_Fourier_wave_vector_seq_id
+_atom_site_displace_Fourier_param_cos
+_atom_site_displace_Fourier_param_sin
+Co1 x 1 0 -0.00235(19)
+Co1 y 1 0 -0.0335(2)
+Co1 z 1 0 0.0001(2)
+Ni1 x 1 0 -0.00235(19)
+Ni1 y 1 0 -0.0335(2)
+Ni1 z 1 0 0.0001(2)
+N1 x 1 0 0
+N1 y 1 -0.00809(19) -0.03223(19)
+N1 z 1 0 0
+N1 x 2 0.00062(19) -0.00007(19)
+N1 y 2 0 0
+N1 z 2 -0.00131(19) 0.00084(17)
+C1 x 1 0 0
+C1 y 1 -0.0019(3) -0.0318(3)
+C1 z 1 0 0
+C1 x 2 -0.0009(3) -0.0012(3)
+C1 y 2 0 0
+C1 z 2 0.0007(3) 0.0002(2)
+C2 x 1 -0.00015(15) -0.00211(15)
+C2 y 1 0.00192(14) -0.03247(17)
+C2 z 1 0.00195(14) 0.00000(14)
+C3 x 1 0 0
+C3 y 1 0.0010(2) -0.0326(2)
+C3 z 1 0 0
+O1 x 1 0.00332(17) -0.00239(17)
+O1 y 1 0.00418(17) -0.03263(19)
+O1 z 1 0.00064(16) -0.00061(16)
+O2 x 1 -0.00076(16) -0.00244(17)
+O2 y 1 0.00136(17) -0.03260(18)
+O2 z 1 0.00356(17) -0.00012(16)
+O3 x 1 0.00404(19) -0.00152(19)
+O3 y 1 0.00274(18) -0.0327(2)
+O3 z 1 -0.00017(17) -0.00062(18)
+O3 x 2 -0.00039(18) 0.00013(19)
+O3 y 2 -0.00030(18) -0.00059(19)
+O3 z 2 0.00007(17) -0.00053(18)
+H1 x 1 0 0
+H1 y 1 -0.0191(5) -0.0296(6)
+H1 z 1 0 0
+H1 x 2 0.0000(5) 0.0004(5)
+H1 y 2 0 0
+H1 z 2 0.0009(5) -0.0005(5)
+H2 x 1 0.0003(4) 0.0011(4)
+H2 y 1 -0.0048(4) -0.0318(4)
+H2 z 1 0.0066(4) 0.0001(4)
+H2 x 2 0.0044(3) -0.0034(4)
+H2 y 2 -0.0018(3) 0.0008(3)
+H2 z 2 0.0000(4) -0.0005(3)
+H3 x 1 0 0
+H3 y 1 0.0114(6) -0.0305(6)
+H3 z 1 0 0
+H3 x 2 -0.0004(5) 0.0010(5)
+H3 y 2 0 0
+H3 z 2 -0.0009(5) -0.0016(5)
+H4 x 1 0.0004(4) 0.0006(4)
+H4 y 1 -0.0076(5) -0.0293(4)
+H4 z 1 0.0096(5) -0.0017(5)
+H4 x 2 -0.0011(4) 0.0001(4)
+H4 y 2 -0.0007(3) -0.0011(4)
+H4 z 2 0.0033(5) 0.0020(4)
+H5 x 1 -0.0039(4) -0.0023(4)
+H5 y 1 -0.0018(3) -0.0314(4)
+H5 z 1 0.0016(3) -0.0012(3)
+H6 x 1 0 0
+H6 y 1 -0.0039(5) -0.0307(5)
+H6 z 1 0 0
+

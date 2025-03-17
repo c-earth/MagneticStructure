@@ -1,0 +1,178 @@
+#\#CIF_2.0
+# Created by the Bilbao Crystallographic Server
+# http://www.cryst.ehu.es
+# Date: 07/24/2022
+# From a file provided by Stanislav Savvin
+
+data_5yOhtAoR
+_audit_creation_date            2022-07-24
+_audit_creation_method          "Bilbao Crystallographic Server"
+
+_chemical_name_systematic
+;
+;
+_chemical_name_common                    ?
+_chemical_formula_moiety                 ?
+_chemical_formula_structural             ?
+_chemical_formula_analytical             ?
+_chemical_formula_iupac                  ?
+_chemical_formula_sum                    "Dy1 Fe1 O3"
+_chemical_formula_weight                 ?
+_chemical_melting_point                  ?
+_chemical_compound_source                ?
+_chemical_absolute_configuration         ?
+
+
+_citation_journal_abbrev        "J. Phys.: Condens. Matter"
+_citation_journal_volume        34
+_citation_page_first            .
+_citation_page_last             .
+_citation_article_id            265801
+_citation_year                  2022
+_citation_DOI                   10.1088/1361-648X/ac6787
+
+loop_
+_citation_author_name
+"C. Ritter"
+"R. Vilarinho"
+"J. A. Moreira" ,
+"M. Mihalik"
+"M. Mihalik"
+"S. Savvin"
+
+_temperature_position_structure         .
+_temperature_atom_positions             .
+_temperature_non-magn_atom_positions    .
+_temperature_cell_parameters            .
+
+_atomic_positions_source_database_code_ICSD  .
+_atomic_positions_source_other               .
+
+_transition_temperature     4
+_experiment_temperature     1.6
+
+loop_
+_irrep_id
+_irrep_dimension
+_irrep_small_dimension
+_irrep_direction_type
+_irrep_action
+_irrep_modes_number
+_irrep_presence
+mGM1+ 1 1 . primary 4 .
+mDT2(k)  2 1 general primary 6 .
+mDT2(3k) 2 1 special secondary 6 yes
+
+_exptl_crystal_magnetic_properties_details
+;
+NPD
+Non-standard parent setting Pbnm
+Above 4K, only the Fe site is magnetically ordered with k=0, according to irrep mGM1+ , and this arrangement is mantained in this incommensurate phase.
+This so-called SDW model of the Dy moments and an alternative spiral arrangement (see #1.1.141) with lower non-centrosymmetric symmetry, did fit equally well the data.  
+The paper considers more likely the spiral model, but in fact, despite using the basis vectors of a single irrep, in the spiral model they are combined in such a way (in quadrature) that they imply the involvement of two independent primary order parameters transforming according to the same irrep, but out of phase. This SDW model of the Dy arrangement, on the contrary, can be interpreted a the result of a single primary order parameter.
+Third order satellites are observed and the model includes a third harmonic modulation of the Dy moments. The orientation of the third harmonic component approximately parallel to the first harmonic or perpendicular equally fits the data. The perpendicular orientation was preferred, as the parallel orientation produced too large values for the Dy moment along the modulation function.
+MSSG symbols indicated here are those corresponding to the (non-standard) setting that is being used, and for this reason they do not coincide with those mentioned in the paper.
+;
+
+_active_magnetic_irreps_details
+;
+2k incommensurate structure (the incommensurate k and k=0)
+Two distinct primary order parameters are involved in this structure. One for the Fe ordering (mGM1+), and one for the Dy moment modulation.
+The chosen origin along x4 is shifted 1/4 along x4 with respect to the inversion center.
+;
+
+_parent_space_group.name_H-M_alt  "P b n m"
+_parent_space_group.IT_number             62
+_parent_space_group.transform_Pp_abc  'b,c,a;0,0,0'
+
+_cell_modulation_dimension               1
+
+loop_
+_cell_wave_vector_seq_id
+_cell_wave_vector_x
+_cell_wave_vector_y
+_cell_wave_vector_z
+1 0.00000 0.00000 0.02800
+
+_parent_space_group.child_transform_Pp_abc  'a,b,c;0,0,0'
+
+_space_group.magn_ssg_name  "Pbnm.1(0,0,g)ss0"
+_space_group.magn_point_group_name  "mmm.1"
+_space_group.magn_point_group_number  8.1.24
+_cell_length_a                 5.28789
+_cell_length_b                 5.58257
+_cell_length_c                 7.59449
+_cell_angle_alpha              90.0000
+_cell_angle_beta               90.0000
+_cell_angle_gamma              90.0000
+
+loop_
+_space_group_symop_magn_ssg_operation.id
+_space_group_symop_magn_ssg_operation.algebraic
+1 x1,x2,x3,x4,1
+2 -x1+1/2,x2+1/2,-x3+1/2,-x4,1
+3 -x1,-x2,x3+1/2,x4,1
+4 x1+1/2,-x2+1/2,-x3,-x4,1
+5 -x1,-x2,-x3,-x4+1/2,1
+6 x1+1/2,-x2+1/2,x3+1/2,x4+1/2,1
+7 x1,x2,-x3+1/2,-x4+1/2,1
+8 -x1+1/2,x2+1/2,x3,x4+1/2,1
+
+loop_
+_space_group_symop_magn_ssg_centering.id
+_space_group_symop_magn_ssg_centering.algebraic
+1 x1,x2,x3,x4,1
+
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+Dy1 Dy -0.0200 0.06874 0.25000 1
+Fe1 Fe 0.50000 0.00000 0.00000 1
+O1 O 0.11088 0.45555 0.25000 1
+O2 O 0.68873 0.30759 0.05709 1
+
+
+loop_
+_atom_site_moment.label
+_atom_site_moment.crystalaxis_x
+_atom_site_moment.crystalaxis_y
+_atom_site_moment.crystalaxis_z
+_atom_site_moment.symmform
+_atom_site_moment.magnitude
+_atom_site_moment.spherical_azimuthal
+_atom_site_moment.spherical_polar
+Dy1 0.00000 0.00000 0.00000 0,0,mz 0.0 ? ?
+Fe1 0.00000 3.77(3) 0.00000 mx,my,mz 3.77(3) ? ?
+
+loop_
+_atom_site_Fourier_wave_vector.seq_id
+_atom_site_Fourier_wave_vector.q1_coeff
+1 1
+2 3
+
+loop_
+_atom_site_moment_Fourier.atom_site_label
+_atom_site_moment_Fourier.axis
+_atom_site_moment_Fourier.wave_vector_seq_id
+_atom_site_moment_Fourier_param.cos
+_atom_site_moment_Fourier_param.sin
+_atom_site_moment_Fourier_param.cos_symmform
+_atom_site_moment_Fourier_param.sin_symmform
+Dy1 x 1 -5.14(3) 0.00000 mxc1 0
+Dy1 y 1 -9.34(2) 0.00000 myc1 0
+Dy1 z 1 0.00000 0.00000  0    mzs1
+Dy1 x 2 -1.61(3) 0.00000 mxc1 0
+Dy1 y 2 2.82(2) 0.00000  myc1 0
+Dy1 z 2 0.00000 0.00000  0    mzs1
+Fe1 x 1 0.00000 0.00000  mxc1 0
+Fe1 y 1 0.00000 0.00000  myc1 0
+Fe1 z 1 0.00000 0.00000  mzc1 0
+Fe1 x 2 0.00000 0.00000  mxc1 0
+Fe1 y 2 0.00000 0.00000  myc1 0
+Fe1 z 2 0.00000 0.00000  mzc1 0
+
+
