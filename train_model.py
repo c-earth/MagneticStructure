@@ -14,7 +14,6 @@ from utils.basis import BsplineBasis, FourierBasis, GaussianBasis, ReLUBasis, PW
 from utils.hs_extract import hs_extract
 from utils.tpe import TPE
 
-torch.set_default_dtype(torch.float64)
 
 cf = Config()
 run_time = time.strftime('%y%m%d_%H%M%S', time.localtime())
